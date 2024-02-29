@@ -83,4 +83,14 @@ print(f"Average Change: ${averagechange:.2f}")
 print(f'Greatest Increase in Profits: {date_data[index1]} (${greatestinc})')
 print(f'Greatest Decrease in Profits: {date_data[index2]} (${greatestdec})')
 
+output_file = os.path.join( "analysis", "Financial_Analysis.txt")
+
+with open(output_file, "w") as datafile:
     
+    datafile.write("Financial Analysis\n")
+    datafile.write("----------------------------\n")
+    datafile.write(f'Total Months: {total_months}\n')    
+    datafile.write(f'Total: ${net_total}\n')
+    datafile.write(f"Average Change: ${averagechange:.2f}\n")
+    datafile.write(f'Greatest Increase in Profits: {date_data[index1]} (${greatestinc})\n')
+    datafile.write(f'Greatest Decrease in Profits: {date_data[index2]} (${greatestdec})')
