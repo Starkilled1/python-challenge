@@ -34,4 +34,14 @@ profiloss_num.pop(0)
 for num in profiloss_num:
     net_total += int(num)
 
-print(net_total)
+changes = []
+
+for i in range(len(profiloss_num)-1):
+    change = int(profiloss_num[i+1]) - int(profiloss_num[i])
+
+    changes.append(change)
+
+averagechange = sum(changes)/len(changes)
+
+print(f"${averagechange:.2f}")
+    
