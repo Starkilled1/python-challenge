@@ -8,9 +8,8 @@ date_data = []
 profiloss = []
 profiloss_num = []
 
-
+# this section open the csv file and read the data and store into lists
 with open(budget_csv) as csvfile:
-    
     
     csvreader = csv.reader(csvfile, delimiter=",")
     
