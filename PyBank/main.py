@@ -29,19 +29,58 @@ net_total = 0
 
 profiloss_num = profiloss
 profiloss_num.pop(0)
+date_data = date
+date_data.pop(0)
 
 # we use a for loop to iterate throu the list and we add the number to the variablo net_total
 for num in profiloss_num:
     net_total += int(num)
-
+    
+#Declare a new list to store the difference between each month 
 changes = []
+# in this section we subtract -1 to the total len of the list because the last value can't be compared
+# in the for loop we subtract the the next value of the loop to the actual one 
+# we append the result of the change to the new list
 
 for i in range(len(profiloss_num)-1):
     change = int(profiloss_num[i+1]) - int(profiloss_num[i])
-
     changes.append(change)
-
+    
+# Calculate the average change using the sum function and the len function
 averagechange = sum(changes)/len(changes)
 
-print(f"${averagechange:.2f}")
+
+# declare variables that would store the index and the greatest increase and decrease
+greatestinc = 0
+greatestdec = 0
+index1 = 0
+index2 = 0
+
+# for loop that goes throu the changes list and evaluates every value of the list 
+
+for value in changes:
+    if value > greatestinc:
+        greatestinc = value  
+    
+    if value < greatestdec:
+        greatestdec = value
+        
+#another for loop to find where this index are, since in the creation of the changes list
+#there is an offset of -1 in the index compared to the dates list so we add +1 to compensate
+        
+for i in range(len(changes)):
+    
+    if changes[i] == greatestinc:
+        index1 = i + 1
+    if changes[i] == greatestdec:
+        index2 = i + 1
+
+print("Financial Analysis")
+print("----------------------------")
+print(f'Total Months: {total_months}')    
+print(f'Total: ${net_total}')
+print(f"Average Change: ${averagechange:.2f}")
+print(f'Greatest Increase in Profits: {date_data[index1]} (${greatestinc})')
+print(f'Greatest Decrease in Profits: {date_data[index2]} (${greatestdec})')
+
     
