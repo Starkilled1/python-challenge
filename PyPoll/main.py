@@ -5,7 +5,7 @@ election_csv = os.path.join( "Resources", "election_data.csv")
 
 candidates=[]
 candidates_names=[]
-
+count_per_name=[]
 
 # this section open the csv file and read the data and store into lists
 with open(election_csv) as csvfile:
@@ -27,9 +27,16 @@ candidates.pop(0)
 
 for name in sorted(set(candidates)):
     
+    # we append the candidate name alphabetically 
     candidates_names.append(name)
+    # we count the number of times the name of each candidate appears inside this loop
+    # this loop will only iterate per unique name and each time we store the count function
+    # result in a new list that will correspond to the names list
     count_per_cand = candidates.count(name)
+    # store the each count in a list which is going to contain the number of votes
+    count_per_name.append(count_per_cand)
     
+print(count_per_name)
 
 print("Election Results") 
 print("-------------------------")
