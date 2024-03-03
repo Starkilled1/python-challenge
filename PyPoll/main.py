@@ -65,6 +65,7 @@ print("-------------------------")
 
 output_file = os.path.join( "analysis", "Poll_Results.txt")
 
+# open a new file and write the same resuls as the terminal
 with open(output_file, "w") as datafile:
     
     datafile.write("Election Results\n") 
