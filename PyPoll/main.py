@@ -24,7 +24,7 @@ with open(election_csv) as csvfile:
 candidates.pop(0)
 
 # in order to know how many candidates are and what their name is we need to sort them 
-# in alphabetical order and removing the duplicates of the list with set in a for loop
+# in alphabetical order and removing the duplicates of the list with set 
 
 for name in sorted(set(candidates)):
     
@@ -44,10 +44,21 @@ for name in sorted(set(candidates)):
     # store each percentage in a new list
     count_percent.append(count_perc_res)
 
+# we pair the each name with the respective votes count
+candidates_plus_votes = dict(zip(candidates_names,count_per_name))
 
-print(f"{count_percent[0]:.3f} %")
+# Max function is used to find the winner based on the value of each key and asign it to a variable winner
+winner = max(candidates_plus_votes, key=candidates_plus_votes.get)
 
 print("Election Results") 
 print("-------------------------")
 print("Total Votes: " + str(len(candidates)))    
+print("-------------------------")
+
+# we do a for loop to iterate and print out each name and data
+for i in range(len(candidates_names)):
+    print(f"{candidates_names[i]}: {count_percent[i]:.3f}% ({count_per_name[i]})")
+    
+print("-------------------------")
+print(f"Winner: {winner}")
 print("-------------------------")
