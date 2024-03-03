@@ -67,15 +67,15 @@ output_file = os.path.join( "analysis", "Poll_Results.txt")
 
 with open(output_file, "w") as datafile:
     
-    datafile.write("Election Results") 
-    datafile.write("-------------------------")
-    datafile.write("Total Votes: " + str(len(candidates)))    
-    datafile.write("-------------------------")
+    datafile.write("Election Results\n") 
+    datafile.write("-------------------------\n")
+    datafile.write(f"Total Votes: {len(candidates)}\n")    
+    datafile.write("-------------------------\n")
 
     # we do a for loop to iterate and print out each name and data
     for i in range(len(candidates_names)):
-        datafile.write(f"{candidates_names[i]}: {count_percent[i]:.3f}% ({count_per_name[i]})")
+        datafile.write(f"{candidates_names[i]}: {count_percent[i]:.3f}% ({count_per_name[i]})\n")
         
-    datafile.write("-------------------------")
-    datafile.write(f"Winner: {winner}")
+    datafile.write("-------------------------\n")
+    datafile.write(f"Winner: {winner}\n")
     datafile.write("-------------------------")
